@@ -1,0 +1,1 @@
+This folder contains the rendered output from the Angular 4 SSR

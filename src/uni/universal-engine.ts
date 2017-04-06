@@ -2,6 +2,7 @@
  * Express/Connect middleware for rendering pages using Angular Universal
  */
 import * as fs from 'fs';
+import * as path from 'path';
 import { renderModuleFactory } from '@angular/platform-server';
 
 const templateCache = {}; // cache for page templates
@@ -32,6 +33,10 @@ export function ngUniversalEngine(setupOptions: any) {
       url: url
     }).then(str => {
       outputCache[url] = str;
+      fs.writeFile(path.resolve(path.resolve(process.cwd()), './html')+url+".html", str, function (err) {
+        if (err) return console.log(err);
+        console.log("Wrote File: "+url+".html");
+      });
       callback(null, str);
     });
   };
