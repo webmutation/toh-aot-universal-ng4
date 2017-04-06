@@ -23,7 +23,7 @@ To serve Universal version
 $ run npm serve:uni
 ```
 
-Disable the build.js in the index-aot.html file to see only the SSR 
+By Default the build.js is disabled in the index-aot.html file to see only the SSR running
 
 ```javascript
 <script src="dist/build.js"></script>
